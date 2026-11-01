@@ -7,7 +7,7 @@
 ---
 
 ## Giới thiệu
-Repository này chứa báo cáo kiểm thử bảo mật chi tiết về ứng dụng crAPI (Completely Ridiculous API) của OWASP. Báo cáo phân tích chuỗi 7 lỗ hổng **Broken Object Level Authorization (BOLA)** - formerly known as IDOR.
+Repository này chứa báo cáo kiểm thử bảo mật chi tiết về ứng dụng crAPI (Completely Ridiculous API) của OWASP. Báo cáo phân tích chuỗi 7 lỗ hổng phân quyền cấp đối tượng và thuộc tính (BOLA & BOPLA - trước đây thường gọi là IDOR).
 
 ## Tóm tắt 7 lỗ hổng đã phát hiện
 
@@ -15,10 +15,10 @@ Repository này chứa báo cáo kiểm thử bảo mật chi tiết về ứng 
 |---|----------|--------|----------------|
 | 1 | `/service-report` | Medium | BOLA trên Service Report API |
 | 2 | `/vehicle-service-dashboard` | Medium | BOLA trên Vehicle Dashboard |
-| 3 | `/workshop/api/shop/orders` | **Critical** | Lộ thông tin thẻ tín dụng (Vi phạm PCI DSS) |
-| 4 | `/community/api/v2/community/posts/recent` | **High** | Mass PII Disclosure |
-| 5 | `/community/api/v2/community/posts/{postId}` | Medium | BOLA trên Chi tiết bài post |
-| 6 | `/contact-mechanic` | **High** | BOLA gửi yêu cầu mạo danh |
+| 3 | `/workshop/api/shop/orders/{id}` | **Critical** | Lộ thông tin thẻ tín dụng (Vi phạm PCI DSS) |
+| 4 | `/community/api/v2/community/posts/recent` | **High** | BOPLA - Rò rỉ thông tin cá nhân hàng loạt (Mass PII Disclosure) |
+| 5 | `/community/api/v2/community/posts/{postId}` | Medium | BOPLA - Rò rỉ thuộc tính tác giả trên chi tiết & bình luận bài post |
+| 6 | `/workshop/api/merchant/contact_mechanic` | **High** | BOLA gửi yêu cầu mạo danh |
 | 7 | `/identity/api/v2/vehicle/{vehicleId}/location` | **Critical** | Real-time GPS Tracking |
 
 ## Cấu trúc Repository
